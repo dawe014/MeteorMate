@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeteorMate - Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <h1>Settings</h1>
+    <form action="/settings" method="post">
+        <label for="units">Select Temperature Units:</label>
+        <select id="units" name="units">
+            <option value="metric" {% if units == 'metric' %}selected{% endif %}>Celsius</option>
+            <option value="imperial" {% if units == 'imperial' %}selected{% endif %}>Fahrenheit</option>
+        </select>
+        <button type="submit">Save Settings</button>
+    </form>
+    <!-- Placeholder for additional settings -->
+    <div id="settings-data">
+        <p>Current selected units: {{ units }}</p>
+    </div>
+</body>
+</html>
