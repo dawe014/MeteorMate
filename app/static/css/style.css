@@ -61,14 +61,17 @@ a:hover {
     background-color: #555;
 }
 #forecast{
-    background-image: url("../images/8.avif");
-    /* background-color: ; */
+    /* background-image: url("../images/8.avif"); */
+    background-color: #06051e;
     height: 100vh;
+    color: white;
     background-repeat: no-repeat;
     background-size: cover;
     /* width: auto !important; */
 }
-
+#forecast-heading {
+    color: #fff;
+}
 /* Style for forecast heading */
 .forecast-heading {
     font-size: 24px;

@@ -1,6 +1,6 @@
 import requests
-from flask import Blueprint, render_template, request, jsonify
-from flask import *
+from flask import Blueprint, render_template, request, jsonify, redirect, url_for, session
+
 bp = Blueprint('main', __name__)
 
 @bp.route('/')
@@ -24,8 +24,8 @@ def settings():
     units = session.get('units', 'metric')
     return render_template('settings.html', units=units)
 
-API_KEY = 'fe370947b3844fefae1180925242005'
-BASE_URL = 'http://api.weatherapi.com/v1'
+API_KEY = 'fYA06PNSbAbW15Kf6TmXro7nxgQAh1dG'
+BASE_URL = 'https://api.tomorrow.io/v4/timelines'
 
 @bp.route('/api/weather', methods=['GET'])
 def get_weather():
@@ -33,18 +33,24 @@ def get_weather():
     if not location:
         return jsonify({'error': 'Location is required'}), 400
 
-    response = requests.get(f"{BASE_URL}/current.json", params={'key': API_KEY, 'q': location})
+    params = {
+        'location': location,
+        'fields': ['temperature', 'weatherCode'],
+        'timesteps': '1h',
+        'units': 'metric',
+        'apikey': API_KEY
+    }
+
+    response = requests.get(BASE_URL, params=params)
     data = response.json()
 
     if response.status_code != 200:
-        return jsonify({'error': data.get('error', {}).get('message', 'Error fetching data')}), 400
+        return jsonify({'error': data.get('message', 'Error fetching data')}), response.status_code
 
     weather_data = {
-        'location': data['location']['name'],
-        'temperature': data['current']['temp_c'],
-        'description': data['current']['condition']['text'],
-        'humidity': data['current']['humidity'],
-        'wind_speed': data['current']['wind_kph']
+        'location': location,
+        'temperature': data['data']['timelines'][0]['intervals'][0]['values']['temperature'],
+        'description': data['data']['timelines'][0]['intervals'][0]['values']['weatherCode']
     }
 
     return jsonify(weather_data)
@@ -55,21 +61,29 @@ def get_forecast():
     if not location:
         return jsonify({'error': 'Location is required'}), 400
 
-    response = requests.get(f"{BASE_URL}/forecast.json", params={'key': API_KEY, 'q': location, 'days': 3})
+    params = {
+        'location': location,
+        'fields': ['temperature', 'weatherCode'],
+        'timesteps': '1d',
+        'units': 'metric',
+        'apikey': API_KEY
+    }
+
+    response = requests.get(BASE_URL, params=params)
     data = response.json()
 
     if response.status_code != 200:
-        return jsonify({'error': data.get('error', {}).get('message', 'Error fetching data')}), 400
+        return jsonify({'error': data.get('message', 'Error fetching data')}), response.status_code
 
     forecast_data = {
-        'location': data['location']['name'],
+        'location': location,
         'forecast': [
             {
-                'date': day['date'],
-                'temp': day['day']['avgtemp_c'],
-                'condition': day['day']['condition']['text']
+                'date': interval['startTime'],
+                'temp': interval['values']['temperature'],
+                'condition': interval['values']['weatherCode']
             }
-            for day in data['forecast']['forecastday']
+            for interval in data['data']['timelines'][0]['intervals']
         ]
     }
 
