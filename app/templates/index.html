@@ -10,11 +10,42 @@
     <section id="home">
     {% include 'navbar.html' %}
     <h1 id="current-weather-heading">Current Weather</h1>
-    <form id="weather-form" action="/forecast" method="get">
+    <figure>
+        <!-- <img src="../static/images/4.jpg" alt=""> -->
+    </figure>
+    <!-- <form id="weather-form" action="/forecast" method="get">
     <label for="location">Enter Location:</label>
     <input type="text" id="location" name="location" class="form-control">
     <button type="submit" class="btn btn-primary">Get Weather</button>
-    </form>
+    </form> -->
+    <div class="hero">
+        <div class="temp_show">
+            <h3>Location</h3>
+            <p>Temprature in celcious</p>
+            <p>temprature in franihit</p>
+        </div>
+        <div class="temp_right">
+            <div class="temp_search">
+                <label for="search">Search: </label>
+                <input type="text" name="city" placeholder="Enter the name of the city">
+            </div>
+            <div class="temp_others">
+                <h3>Location</h3>
+                <p>Temprature in celcious</p>
+                <p>temprature in franihit</p>
+            </div>
+            <div class="temp_others">
+                <h3>Location</h3>
+                <p>Temprature in celcious</p>
+                <p>temprature in franihit</p>
+            </div>
+            <div class="temp_others">
+                <h3>Location</h3>
+                <p>Temprature in celcious</p>
+                <p>temprature in franihit</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 </body>
