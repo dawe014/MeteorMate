@@ -9,10 +9,11 @@
 }
 :root {
     font-size: 10px;
+    box-sizing: border-box;
 }
 
 body {
-    width: 100vw;
+    /* width: 100vw; */
     height: 100vh;
     /* background-image: url();
     background: url("../images/5.jpg") no-repeat;
@@ -90,6 +91,7 @@ body {
     background-position: center center;
     font-size: 2rem;
     color: white;
+
 }
 /* Styling home page */
 
@@ -114,7 +116,7 @@ label, input, button {
 }
 .hero {
     height: 70vh;
-    /* border: 2px solid red; */
+    border: 2px solid red;
     display: grid;
     /* grid-template-columns: 33.33% 33.33% 33.33%; */
     grid-template-columns:  repeat(3, 1fr) ;
@@ -126,12 +128,12 @@ label, input, button {
 .temp_show {
     /* grid-area: 0 1; */
     grid-column: 1/2;
-    /* border: 2px solid coral; */
+    border: 2px solid coral;
     padding: 1rem;
     color: white;
 }
 .temp_right {
-    /* border: 2px solid greenyellow; */
+    border: 2px solid greenyellow;
     grid-column: 2/-1;
 
 }
@@ -151,7 +153,7 @@ label, input, button {
     /* outline: red; */
 }
 .temp_others {
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     padding: 2rem;
 }
 
@@ -221,4 +223,91 @@ width: 50px;
 .cloud_image .fa-solid {
     font-size: 200px;
     color: #fff;
+}
+
+/*--------------------REgister-----------------*/
+
+.register {
+    
+    width: 35%;
+    background-color: rgb(12, 13, 14);
+    margin: auto;
+    margin-top: 5rem;
+    padding: 4rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+.register h1 {
+    color: #007bff;
+    margin-bottom: 2rem;
+    font-size: 4rem;
+}
+.input form {
+    display: grid;
+    grid-template-columns: 15rem 30rem;
+    justify-content: center;
+    font-size: 2.5rem;
+    gap: 2rem;
+    /* margin-bottom: 2rem; */
+    /* padding: 0 6rem; */
+}
+#reg {
+    border: 1px solid red;
+    grid-column: 1/-1;
+    padding: 1rem;
+    justify-self: center;
+    width: max-content;
+    align-self: center;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgb(95, 87, 84);
+    color: white;
+    font-size: 2.5rem;
+    outline: none;
+    transition: .5s;
+}
+
+#reg:hover {
+    background-color: #007bff;
+    transition: .5s;
+}
+.input form input, input::placeholder{
+    
+    font-size: 2rem;
+    padding: 0.3rem 1rem;
+    outline: none;
+    /* color: #080808; */
+    border-top: none;
+
+}
+
+.register a {
+    color: #007bff;
+    font-size: 2rem;
+}
+
+.register input[type="submitt"] {
+    padding: 1rem;
+    width: min-content;
+    align-self: center;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgb(95, 87, 84);
+    color: white;
+    font-size: 2.5rem;
+    outline: none;
+    transition: .5s;
+}
+
+.register input[type="submitt"]:hover {
+    background-color: #007bff;
+    transition: .5s;
 }

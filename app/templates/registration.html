@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <section id="regis">
+        <div class="register">
+            <h1>Sign Up</h1>
+            <div class="input">
+                <form action="{{ url_for('main.registration') }}" method="POST">
+                    <label for="name">Full Name:</label>
+                    <input type="text" name="fname" id="fname" placeholder="Enter Name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                    <label for="pass">Password:</label>
+                    <input type="password" name="pass" id="pass" placeholder="Password" required>
+                    <label for="con">Confirm</label>
+                    <input type="password" name="conf" id="conf" placeholder="Confirm Password" required>
+                    <button type="submit" name="reg" id="reg">Sign Up</button>
+                </form>
+            </div>
+            <p>Go to <a href="{{ url_for('main.login') }}">Login Page</a></p>
+        </div>
+    </section>
+</body>
+</html>

@@ -14,7 +14,7 @@ MeteorMate is a simple weather website built using Flask, a lightweight web fram
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/MeteorMate.git
+   git clone https://github.com/dawe014/MeteorMate.git
    ```
 
 2. Navigate to the project directory:
