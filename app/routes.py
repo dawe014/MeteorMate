@@ -66,11 +66,6 @@ def logout():
     flash('You have successfully logged out.', 'success')
     return redirect(url_for('main.login'))
 
-@bp.route('/forecast')
-@login_required
-def forecast():
-    return render_template('forecast.html')
-
 @bp.route('/api/weather', methods=['GET'])
 @login_required
 def get_weather():
