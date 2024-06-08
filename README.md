@@ -1,72 +1,160 @@
-# MeteorMate Weather Website
+# MeteorMate
 
-MeteorMate is a simple weather website built using Flask, a lightweight web framework for Python. It allows users to check the current weather, forecast, and historical data for any location.
+MeteorMate is a web application built with Flask that provides weather forecasts and current weather data using the OpenWeatherMap API. Users can register, log in, and manage their settings, including preferred units for temperature display.
 
 ## Features
 
-- **Current Weather**: Get real-time weather information for any location.
-- **Forecast**: View weather forecasts for the next few days.
-- **Historical Data**: Access historical weather data to track weather trends.
-- **Settings**: Customize preferences such as temperature units and location.
+- User registration and login
+- Password hashing for secure storage
+- Current weather data retrieval
+- Weather forecast retrieval
+- User session management
+- Settings to choose preferred units for temperature
+
+## Technologies Used
+
+- **Flask**: Lightweight web framework for Python
+- **Flask-Bcrypt**: Password hashing utilities
+- **Flask-SQLAlchemy**: SQLAlchemy support for Flask applications
+- **Flask-Login**: User session management
+- **requests**: HTTP requests to fetch data from the OpenWeatherMap API
+- **SQLite**: Lightweight, disk-based database
 
 ## Installation
 
-1. Clone the repository:
+Follow these steps to set up the project locally:
 
-   ```bash
-   git clone https://github.com/dawe014/MeteorMate.git
-   ```
+1. **Clone the repository:**
 
-2. Navigate to the project directory:
+    ```sh
+    git clone https://github.com/dawe014/MeteorMate.git
+    cd MeteorMate
+    ```
 
-   ```bash
-   cd MeteorMate
-   ```
+2. **Create a virtual environment:**
 
-3. Install dependencies:
+    ```sh
+    python -m venv venv
+    ```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. **Activate the virtual environment:**
+
+    - On Windows:
+
+        ```sh
+        venv\Scripts\activate
+        ```
+
+    - On macOS and Linux:
+
+        ```sh
+        source venv/bin/activate
+        ```
+
+4. **Install the dependencies:**
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+5. **Set up the database:**
+
+    Run the following command to create the SQLite database:
+
+    ```sh
+    python -c "from app import db, app; with app.app_context(): db.create_all()"
+    ```
+
+6. **Run the application:**
+
+    ```sh
+    python run.py
+    ```
+
+7. **Access the application:**
+
+    Open your web browser and go to `http://127.0.0.1:5000/`.
+
+## Configuration
+
+Ensure you have the correct OpenWeatherMap API key set up in your `routes.py` file:
+
+```python
+API_KEY = 'your_openweathermap_api_key'
+```
+
+Replace `'your_openweathermap_api_key'` with your actual API key from OpenWeatherMap.
 
 ## Usage
 
-1. Run the Flask app:
+1. **Registration:**
+   - Visit the `/registration` route to create a new account.
+   - ![Registration Page](screenshots/registration.png)
 
-   ```bash
-   python run.py
-   ```
+2. **Login:**
+   - Visit the `/login` route to log in with your credentials.
+   - ![Login Page](screenshots/login.png)
 
-2. Open your web browser and go to `http://localhost:5000` to access the MeteorMate website.
+3. **Home Page:**
+   - After logging in, you will be redirected to the home page.
+   - ![Home Page](screenshots/home.png)
 
-3. Enter the desired location in the search bar and click "Get Weather" to view the current weather.
+4. **Weather Forecast:**
+   - After logging in, visit the `/forecast` route to view the weather forecast.
 
-4. Explore other features such as forecasts, historical data, and settings.
+5. **Settings:**
+   - Adjust your preferred units for temperature (metric, imperial, or standard) in the settings.
 
-## API Integration
+## Project Structure
 
-MeteorMate uses a weather API to fetch weather data. You need to obtain an API key from a weather service provider and add it to the `routes.py` file.
+```plaintext
+MeteorMate/
+├── app/
+│   ├── __init__.py
+│   ├── decorators.py
+│   ├── models.py
+│   ├── routes.py
+│   |── templates/
+│   |   ├── index.html
+│   |   ├── login.html
+│   |   └── registration.html
+│   └── static/
+│       ├── css/
+│       ├── images/
+│       └── js/
+├── screenshots/
+│   ├── registration.png
+│   ├── login.png
+│   ├── home.png
+├── requirements.txt
+└── run.py
+```
 
-## Built With
+## Dependencies
 
-- [Flask](https://flask.palletsprojects.com/) - Web framework for Python.
-- [OpenWeatherMap API](https://openweathermap.org/api) - Weather data provider.
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Frontend development.
+Here are the main dependencies used in this project:
+
+```txt
+Flask==2.2.2
+Flask-Login==0.6.2
+Flask-SQLAlchemy==3.0.2
+requests==2.28.1
+click==8.1.3
+itsdangerous==2.1.2
+Jinja2==3.1.2
+MarkupSafe==2.1.1
+Werkzeug==2.2.2
+SQLAlchemy==1.4.43
+```
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
-## Acknowledgments
+---
 
-- Thanks to [OpenWeatherMap](https://openweathermap.org/) for providing weather data.
-- Inspiration from various Flask tutorials and documentation.
-
-## Author
-
-Dawit Tamiru (https://github.com/dawe014)
-
+Make sure to place your screenshots in a folder named `screenshots` within your project directory and name them `registration.png`, `login.png`, and `home.png` as referenced in the README file. This way, the images will be correctly displayed when the README file is viewed on GitHub or another platform.
