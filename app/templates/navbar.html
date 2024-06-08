@@ -5,46 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MeteorMate - Current Weather</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    
 </head>
 <body>
-    <header>
+    <header id="header">
         <a class="navbar-brand" href="/">MeteorMate</a>
         
         <nav>
             <ul class="nav_links">
-                <li><a class="nav-link" href="/">Home</a></li>
-                <li >
-                    <a class="nav-link" href="/forecast">Weather Forecast</a>
-                </li>
-                <li >
-                    <a class="nav-link" href="/history">Weather History</a>
-                </li>
-                <li >
-                    <a class="nav-link" href="/settings">Settings</a>
-                </li>
-                <li >
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li >
-                    <a class="nav-link" href="/contact">Contact</a>
+                <li><a class="nav-link hidelink" href="/">Home</a></li>
+                <li>
+                    <a class="nav-link hidelink" href="#">Settings</a>
+                    <div class="dropdown-content">
+                        <a href="#" data-unit="metric">Celsius</a>
+                        <a href="#" data-unit="imperial">Fahrenheit</a>
+                    </div>
                 </li>
 
+                
             </ul>
         </nav>
-            <div class="btn">
-                <li >
-                    <a class="nav-link" href="/registration">Sign UP</a>
-                <li >
-                    <a class="nav-link" href="/login">Sign In</a>
+        <div class="btn">
+            <li><a class="nav-link hidelink" href="/logout">logout</a></li>
+        </div>
+        <li class="hidemenu">
+            <a href="#" onclick="showSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </a>
+        </li>
+            </header>
+    <section>
+        
+        <nav>
+            <ul class="sidebar nav-links">
+                <li><a onclick="closeSidebar()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a class="side" href="/">Home</a></li>
+                <li>
+                    <a class="side nav-link" href="#">Settings</a>
+                    <div class="dropdown-content">
+                        <a href="#" data-unit="metric">Celsius</a>
+                        <a href="#" data-unit="imperial">Fahrenheit</a>
+                    </div>
                 </li>
-            </div>
-       
-    </header>
-    
-    <!-- Bootstrap JS, jQuery, and Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                
+                <li><a class="side btn"  href="/logout">logout</a></li>
+            </ul>
+        </nav>
+        
+    </section>
+
+    <script src="../static/js/script.js">
+        
+    </script>
 </body>
 </html>

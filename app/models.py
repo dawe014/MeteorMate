@@ -6,8 +6,6 @@ class User(db.Model):
     full_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
-
-
+    
 with app.app_context():
-        #test code
         db.create_all()

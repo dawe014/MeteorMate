@@ -7,46 +7,42 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <section id="home">
     {% include 'navbar.html' %}
-    <h1 id="current-weather-heading">Weather Forecast for</h1>
-    <figure>
-        <!-- <img src="../static/images/4.jpg" alt=""> -->
-    </figure>
-    <!-- <form id="weather-form" action="/forecast" method="get">
-    <label for="location">Enter Location:</label>
-    <input type="text" id="location" name="location" class="form-control">
-    <button type="submit" class="btn btn-primary">Get Weather</button>
-    </form> -->
+    <section id="home">
+        <div id="main">
+    <h1 id="current-weather-heading">Weather Forecast</h1>
+    <div class="temp_search">
+        <input type="text" id="location" name="location" class="form-input" placeholder="Location">
+        <button type="button"  onclick="getForecast()" class="form-button">Get Forecast</button>
+    </div>
+</div>
+    
     <div class="hero">
-        <div class="temp_show">
-            <h3>Todays weather</h3>
-            <p>Temprature in celcious</p>
-            <p>temprature in franihit</p>
+        <div class="temp_show" id="forecast-data">
+           
         </div>
-        <div class="temp_right">
-            <div class="temp_search">
-                <label for="search">Search: </label>
-                <input type="text" name="city" placeholder="Enter the name of the city">
+        <div class="temp_right" id="error">
+            
+            <div class="temp_others" id="day-1">
+              
             </div>
-            <div class="temp_others">
-                <h3>Location</h3>
-                <p>Temprature in celcious</p>
-                <p>temprature in franihit</p>
+            <div class="temp_others" id="day-2">
+               
             </div>
-            <div class="temp_others">
-                <h3>Location</h3>
-                <p>Temprature in celcious</p>
-                <p>temprature in franihit</p>
+            <div class="temp_others" id="day-3">
+               
             </div>
-            <div class="temp_others">
-                <h3>Location</h3>
-                <p>Temprature in celcious</p>
-                <p>temprature in franihit</p>
+            <div class="temp_others" id="day-4">
+               
+            </div>
+            <div class="temp_others" id="day-5">
+               
             </div>
         </div>
     </div>
 </section>
+
+<script src="../static/js/script.js"></script>
 
 </body>
 </html>
