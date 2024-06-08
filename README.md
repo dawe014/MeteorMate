@@ -147,14 +147,6 @@ Werkzeug==2.2.2
 SQLAlchemy==1.4.43
 ```
 
-## Contributing
+## Author
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Make sure to place your screenshots in a folder named `screenshots` within your project directory and name them `registration.png`, `login.png`, and `home.png` as referenced in the README file. This way, the images will be correctly displayed when the README file is viewed on GitHub or another platform.
+Dawit Tamiru (https://github.com/dawe014)
