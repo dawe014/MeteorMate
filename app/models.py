@@ -1,4 +1,4 @@
-from . import db,app
+from . import db
 
 class User(db.Model):
     __tablename__ = 'user'  # Explicitly specify the table name
@@ -6,6 +6,3 @@ class User(db.Model):
     full_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
-    
-with app.app_context():
-        db.create_all()
