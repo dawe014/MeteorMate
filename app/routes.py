@@ -3,7 +3,6 @@ from . import db, bcrypt
 from .models import User
 import requests
 from flask_login import login_user, logout_user, login_required, current_user
-
 from .decorators import login_required
 
 bp = Blueprint('main', __name__)
